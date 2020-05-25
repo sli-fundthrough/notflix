@@ -10,7 +10,7 @@ module Api
       def create
         movie = Movie.new(movie_params)
 
-        if article.save
+        if movie.save
           render json: {status: 'SUCCESS', message: 'Added movie', data: movie}, status: :ok
         else
           render json: {status: 'ERROR', message: 'Movie not added', data: movie.errors}, status: :unprocessable_entity
@@ -24,7 +24,7 @@ module Api
 
       def update
         movie = Movie.find params[:id]
-        if movie.update_attributes article_params
+        if movie.update_attributes movie_params
           render json: {status: 'SUCCESS', message: 'Updated movie', data: movie}, status: :ok
         else
           render json: {status: 'ERROR', message: 'Movie not updated', data: movie.errors}, status: :unprocessable_entity
@@ -37,7 +37,7 @@ module Api
         render json: {status: 'SUCCESS', message: 'Deleted movie', data: movie}, status: :ok
       end
 
-      def article_params
+      def movie_params
         params.permit(:title, :length, :overview)
       end
 

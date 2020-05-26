@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  before_save { self.email = email.downcase }
+
   has_many :user_movie_data
 
   validates :name, presence: true,

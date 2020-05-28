@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
       resources :users
       resources :movies
+      resources :user_movies
 
     end
   end

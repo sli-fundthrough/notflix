@@ -3,7 +3,7 @@ module Api
 
 
     class MoviesController < ApplicationController
-      include Secured
+      # include Secured
 
       before_action :set_connection
 
